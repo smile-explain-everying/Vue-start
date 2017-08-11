@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>extends option</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>extends</h1>
+	<hr>
+	<div id="app">
+		${ num }
+		<!-- {{num}} -->
+		<p><button @click="add">add</button></p>
+	</div>
+<script type="text/javascript">
+    var extendsObj={
+    	updated:function(){
+    		console.log('我是扩展的updata')
+    	},
+    	methods:{
+    		add:function(){
+    			console.log('我是扩展出来的方法');
+    			this.add++
+    		}
+    	}
+    }
+	var app = new Vue({
+		el:'#app',
+		data:{
+			num:1
+		},
+		methods:{
+			add:function(){
+				console.log('我是原生的方法')
+				this.num++;
+			}
+		},
+		updated:function(){
+			console.log('我是原生的updata')
+		},
+		extends:extendsObj,
+		delimiters:['${','}']    
+		// 改变差值形式
+	})
+</script>
+</body>
+</html>

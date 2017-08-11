@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>v-text&v-html</title>
+	<script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+	<h1>v-text & v-html</h1>
+	<hr>
+	<div id="app">
+		<span>{{message}}</span>
+		<br/>
+		<span v-text="message"></span>
+		<br/>
+		<span v-html="msgHtml"></span>
+
+	</div>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+           message:'hello vue',
+           msgHtml:'<h5>我是message标签</h5>'
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>template制作模板</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+     <h1>template制作模板</h1>
+     <hr>
+     <div id="app">
+     	<!-- {{message}} -->
+     </div>
+     <template id="dd2">
+     	 <h2 style="color:red">我是template标签模板模板</h2>
+     </template>
+     <script type="x-template" id="dd3">
+     	<h2 style="color:red">我是script标签模板模板</h2>
+     </script>
+<script type="text/javascript">
+	var app =new Vue({
+		el:'#app',
+		// data:{ 
+  //           message:'hello'
+		// },
+		template:'#dd3'
+		// template:`
+  //           <h2 style="color:red">我是选项模板</h2>
+		// `
+	}
+</script>
+</body>
+</html>

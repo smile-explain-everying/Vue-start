@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>component组件</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>component</h1>
+	<hr>
+	<div id="app">
+		<jspang></jspang>
+		<panda></panda>
+	</div>
+<script type="text/javascript">
+	Vue.component('jspang',{
+        template:'<div style="color:orange">我是全局组件</div>'
+	})
+	var app = new Vue({
+        el:'#app',
+        components:{
+        	'panda':{
+        		template:'<h2 style="color:green">我是局部组件</h2>'
+        	}
+        }
+	})
+	// var ppa = new Vue({
+	// 	el:'#ppa'
+	// })
+</script>
+</body>
+</html>

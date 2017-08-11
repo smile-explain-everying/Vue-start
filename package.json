@@ -1,0 +1,14 @@
+{
+  "name": "vuedom",
+  "version": "1.0.0",
+  "description": "vue dome",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zx",
+  "license": "ISC"
+}

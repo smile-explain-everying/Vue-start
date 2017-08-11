@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>实例</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+	<script src="../assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>$mount</h1>
+	<hr>
+	<div id="app">
+
+	</div>
+	<p><button onclick="destroy()">卸载</button></p>
+	<p><button onclick="relaod()">更新</button></p>
+	<p><button onclick="tick()">更改数据</button></p>
+	<script type="text/javascript">
+		var jspang = Vue.extend({
+			template:'<p>{{message}}</p>',
+			data:function(){
+				return{
+					message:'hello jspang'
+				}
+			},
+			mounted:function(){
+				console.log('mounted 被创建')
+			},
+			destroyed:function(){
+				console.log('vm  被卸载')
+			},
+			updated:function(){
+				console.log('vm 被更新')
+			}
+		})
+
+		var vm = new jspang().$mount('#app')
+		function destroy(){
+			vm.$destroy();
+		}
+		function relaod(){
+			vm.$forceUpdate()
+		}
+		function tick(){
+			vm.message="update message info ";
+			vm.$nextTick(function(){
+				console.log('message更新完后我被调用了');
+			})
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>实例事件</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="app">
+	    <span>{{message}}</span>
+		<button @click="add">add</button>
+	</div>
+       <button onclick="reduce()">reduce</button>
+       <button onclick="reduceOnce()">once</button>
+       <button onclick="off()">off</button>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+			message:2
+		},
+		methods:{
+			add:function(){
+				this.message++;
+			}
+		}
+	});
+	app.$on('reduce',function(){
+		console.log('执行了reduce（）')
+		this.message--;
+	})
+	app.$once('reduceOnce',function(){
+		console.log('执行了yici（）')
+		this.message--;
+	})
+	function reduce(){
+		app.$emit('reduce')
+	}
+	function reduceOnce(){
+		app.$emit('reduceOnce')
+	}
+
+	//关闭事件
+	function off(){
+	   app.$off('reduce');
+	}
+</script>
+</body>
+</html> 

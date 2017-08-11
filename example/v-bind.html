@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>v-bind</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>v-bind</h1>
+	<hr>
+	<div id="app">
+		<img :src="imgSrc" alt="" width="400px">
+		<hr>
+		<a :href="weburl" target="_blank">技术</a>
+		<hr>
+		<div :class="className">1.绑定class</div>
+		<span :class="classNames">ok</span>
+		<div :class="{classA:isOk}">2.绑定class中的判断</div>
+		<hr>
+		<div>
+		<input type="checkbox" v-model="isOk" id="isOk">
+		<label for="isOk" :class="{classA:isOk}">isOk={{isOk}}</label>
+		</div>
+		<div :class="[className,classNames]">3.绑定class数组</div>
+		<div :class="isOk?className:classNames">4.三元运算符绑定class数组</div>
+		<hr>
+		<div :style="{color:red,fontSize:font}">5.绑定行内样式</div>
+		<div :style="styleObject">6.以数组方式绑定行内样式</div>
+	</div>
+	<style>
+		.classA{
+			color:orange;
+		}
+		.classB{
+             font-size: 150%
+		}
+	</style>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+           imgSrc:'../../assets/images/timg.jpg',
+           weburl:'http://jspang.com',
+           className:'classA',
+           classNames:'classB',
+           isOk:false,
+           red:'red',
+           font:'20px',
+           styleObject:{
+           	 color:'green',
+           	 fontSize:'20px',
+           	 display:'block',
+           	 lineHeight:'50px',
+           	 textDecoration:'underline'
+           }
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>component标签</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>component标签</h1>
+	<hr>
+	<div id="app">
+		<component :is="who"></component>
+		<button @click="changeComponent">changeComponent</button>
+	</div>
+<script type="text/javascript">
+// 1/外部定义组件
+// 2、内部声明组件
+    var componentA ={
+    	template:'<div style="color:orange">I am comonentA</div>'
+    }
+    var componentB = {
+    	template:'<div style="color:green">I am componentB</div>'
+    }
+    var componentC = {
+    	template:'<div style="color:red">I am componentC</div>'
+    }
+	var app = new Vue({
+		el:'#app',
+		data:{
+			who:'componentC'
+		},
+		components:{
+			"componentA":componentA,
+			"componentB":componentB,
+			"componentC":componentC,
+		},
+		methods:{
+			changeComponent:function(){
+				if(this.who=='componentA'){
+					this.who='componentB';
+				}else if(this.who=='componentB'){
+					this.who='componentC';
+				}else{
+					this.who='componentA'
+				}
+			}
+		}
+	})
+</script>
+</body>
+</html>

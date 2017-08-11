@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>component组件的属性设置</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>component组件的属性设置</h1>
+	<hr>
+	<div id="app">
+		<jspang :here="message"></jspang>
+	</div>
+<script type="text/javascript">
+
+	var app = new Vue({
+		el:'#app',
+		data:{
+			message:'四川'
+		},
+		components:{
+            'jspang':{
+            	template:'<h5 style="color:red">panda from {{here}}</h5>',
+            	props:['here']
+            }
+		}
+	})
+</script>
+</body>
+</html>

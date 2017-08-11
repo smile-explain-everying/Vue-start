@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>methods option</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>methods ooption</h1>
+	<hr>
+	<div id="app">
+		{{count}}
+		<p><button @click="add(2,$event)">add</button></p>
+		<p><btn @click.native="add(2)"></btn></p>
+	</div>
+	<p><button onclick="app.add(3)">外部</button></p>
+<script type="text/javascript">
+    var btn={
+        template:`<button>组件</button>`
+    }
+	var app = new Vue({
+		el:'#app',
+		data:{
+			count:1
+		},
+		components:{
+			"btn":btn
+		},
+		methods:{
+			add:function(num,event){
+				if(num !=''){
+					this.count+=num;
+				}else{
+                    this.count++;
+				}
+			}
+		}
+	})
+</script>
+</body>
+</html>

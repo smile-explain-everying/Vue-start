@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue.jquery</title>
+	<script src="../assets/js/vue.js" type="text/javascript"></script>
+	<script src="../assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>vue+jquery</h1>
+	<hr>
+	<div id="app">
+		{{message}}
+	</div>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+           message:'hello'
+		},
+		mounted:function(){
+			$('#app').html('我是jQuery')
+		},
+		methods:{
+			add:function(){
+				console.log('调用了构造器内部的add方法')
+			}
+		}
+	})
+	app.add()
+</script>
+</body>
+</html>
